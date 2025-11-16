@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi - [Nama Anda]</title>
+    <style>
+        /* Pengaturan Dasar */
+        :root {
+            --primary-color: #0077b6; /* Biru */
+            --secondary-color: #00b4d8; /* Biru Muda */
+            --text-color: #1a1a1a;
+            --background-light: #f4f4f9;
+            --background-dark: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Inter', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Struktur Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: var(--background-dark);
+            box-shadow: 0 4px 6px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* Konten Halaman */
+        .page-content {
+            padding: 40px 20px;
+            min-height: 70vh;
+            background-color: var(--background-dark);
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+
+        /* Halaman Home */
+        #home-page {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+        }
+
+        .home-profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        #home-page h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        #home-page p {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #005f96;
+            transform: translateY(-2px);
+        }
+
+        /* Halaman About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .skills-list li {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Halaman Gallery/Project */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
+        .project-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .project-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: var(--background-dark);
+            border-top: 1px solid #e0e0e0;
+            color: #777;
+            border-radius: 12px 12px 0 0;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            #home-page h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="#" onclick="showPage('home-page'); return false;">IRGI Portofolio</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active" onclick="showPage('home-page'); return false;">Beranda</a></li>
+                    <li><a href="#" onclick="showPage('about-page'); return false;">Tentang</a></li>
+                    <li><a href="#" onclick="showPage('gallery-page'); return false;">Proyek</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 1. HOME PAGE (index.html) -->
+        <section id="home-page" class="page-content">
+            <img src=foto_2.jpg alt="Foto Profil" class="home-profile-pic" onerror="this.onerror=null; this.src='https://placehold.co/150x150/0077b6/ffffff?text=FOTO+ANDA';" />
+            <h1>Halo, Saya Irgi Alyansa Perdana</h1>
+            <p>Kelas K23B</p>
+            <p>NIM 23552011210</p>
+            <a href="#" class="cta-button" onclick="showPage('gallery-page'); return false;">Lihat Proyek Terbaru</a>
+        </section>
+
+        <!-- 2. ABOUT PAGE (about.html) -->
+        <section id="about-page" class="page-content" style="display:none;">
+            <h2>Tentang Saya</h2>
+            <div class="about-grid">
+                <div>
+                    <!-- Menggunakan placeholder image -->
+                    <img src="https://placehold.co/400x300/00b4d8/ffffff?text=Ilustrasi+Diri" alt="Ilustrasi diri" class="about-image" onerror="this.onerror=null; this.src='https://placehold.co/400x300/00b4d8/ffffff?text=Ilustrasi+Diri';" />
+                </div>
+                <div>
+                    <p>Saya Irgi Alyansa Perdana, seorang profesional dengan pengalaman 5 tahun di bidang teknologi. Saya memiliki hasrat kuat dalam memecahkan masalah kompleks melalui kode yang bersih dan desain yang intuitif.</p>
+                    <p>Latar belakang pendidikan saya adalah di bidang Teknik Informatika, yang memberikan fondasi kuat dalam berpikir logis dan sistematis. Selain *coding*, saya gemar membuat konten video di sosial media.</p>
+
+                    <h3>Keahlian Teknis</h3>
+                    <ul class="skills-list">
+                        <li>HTML5 & CSS3 Murni</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Angular / React</li>
+                        <li>Desain Responsif</li>
+                        <li>Figma / Sketch</li>
+                        <li>Database (SQL, Firestore)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. GALLERY / PROJECT PAGE (gallery.html) -->
+        <section id="gallery-page" class="page-content" style="display:none;">
+            <h2>Proyek Pilihan</h2>
+            <p>Beberapa karya terbaru yang mencerminkan keterampilan dan minat saya.</p>
+
+            <div class="gallery-grid">
+                <!-- Proyek 1 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/48cae4/ffffff?text=Proyek+1" alt="Thumbnail Proyek E-commerce" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/400x200/48cae4/ffffff?text=Proyek+1';" />
+                    <div class="project-info">
+                        <h3>Aplikasi Manajemen Tugas</h3>
+                        <p>Aplikasi berbasis web untuk membantu tim mengelola daftar tugas harian dan proyek jangka panjang secara efisien.</p>
+                        <a href="#">Detail Proyek &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/023e8a/ffffff?text=Proyek+2" alt="Thumbnail Proyek Dashboard" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/400x200/023e8a/ffffff?text=Proyek+2';" />
+                    <div class="project-info">
+                        <h3>Desain Ulang Portal Berita</h3>
+                        <p>Fokus pada peningkatan kecepatan *loading* dan pengalaman pengguna (UX) pada *platform* berita digital.</p>
+                        <a href="#">Detail Proyek &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/00b4d8/ffffff?text=Proyek+3" alt="Thumbnail Proyek Website Portofolio" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/400x200/00b4d8/ffffff?text=Proyek+3';" />
+                    <div class="project-info">
+                        <h3>Sistem Inventaris Sekolah</h3>
+                        <p>Pengembangan sistem basis data untuk pelacakan aset dan pemeliharaan inventaris sekolah secara *real-time*.</p>
+                        <a href="#">Detail Proyek &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Portofolio.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Tampilkan halaman yang diminta
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.style.display = 'block';
+            }
+
+            // Atur status aktif pada navigasi
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Tampilkan halaman Beranda (Home) saat pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+             // Pastikan halaman home ditampilkan jika halaman lain disembunyikan di CSS
+             // Saat ini, halaman home sudah diset sebagai 'block' dan lainnya 'none' di style
+        });
+    </script>
+</body>
+</html>
